@@ -1,0 +1,63 @@
+<header>
+    <div class="container">
+        <h1><%= invoice.company.name %></h1>
+        <h2><%= invoice.company.slogan %></h2>
+    </div>
+</header>
+<div id="content">
+    <div class="container">
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <h3>Facture #<%= invoice.number %></h3>
+            </div>
+            <div class="pure-u-1-2 right">
+                <p><%= invoice.client_head %></p>
+                <p><%= invoice.client.address %></p>
+                <p><%= invoice.updated_at.to_date.to_formatted_s(:long) %></p>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <table class="pure-table pure-table-striped">
+                    <thead>
+                        <tr>
+                            <td>Items</td>
+                            <td>Qté/Hrs</td>
+                            <td>Prix Unitaire</td>
+                            <td>Sous-total</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% invoice.items.each do |item| %>
+                        <tr>
+                            <td><%= item.name %></td>
+                            <td><%= item.quantity %> hrs</td>
+                            <td>$<%= item.value %>/hr</td>
+                            <td>$<%= item.total %></td>
+                        </tr>
+                        <% end %>
+                        <tr class="table-footer">
+                            <td></td>
+                            <td></td>
+                            <td>Grand total</td>
+                            <td>$<%= invoice.total %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="pure-g boxed">
+            <div class="pure-u-1">
+                <h4>Modalités de paiement</h4>
+                <p>Payable par chèque, espèces ou Internet (ex. Interac en ligne) sous 5 jours</p>
+                <h4>Adresse</h4>
+                <p><%= invoice.company.email %></p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="container">
+        <p><%= invoice.company_head %></p>
+    </div>
+</footer>

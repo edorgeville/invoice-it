@@ -1,0 +1,107 @@
+
+/* ----- COLORS -----*/
+
+header, table thead tr td, footer{
+    background-color: #2c3f50 !important;
+    color: white;
+}
+
+header a, footer a{
+    color: white;
+}
+
+table tbody tr td{
+    color: #666666;
+}
+
+/* ----- BASE ----- */
+
+*{
+    font-family: 'Lato', sans-serif;
+}
+
+body{
+    font-size: 12px;
+    font-size: 16px;
+}
+
+h1, h2{
+    margin: 0;
+    font-weight: normal;
+}
+
+h1{
+    font-size: 1.3333em;
+}
+
+h2{
+    font-size: 1em;
+}
+
+h3{
+    font-size: 1.16666em;
+}
+
+h4{
+    text-transform: uppercase;
+    margin-top: 0;
+}
+
+p{
+    /*font-size: 0.75em;*/
+    margin: 4px;
+}
+
+a{
+    color: rgb(34, 34, 119);
+}
+
+.container{
+    max-width: 960px;
+    padding: 0 50px;
+    margin: 0 auto;
+}
+
+.pure-g{
+    padding: 1em 0;
+}
+
+.right{
+    text-align: right;
+}
+
+.boxed{
+    background-color: #f5f5f5;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 0.8em;
+    margin-bottom: 2em;
+}
+
+/* ----- HEADER / FOOTER ----- */
+
+header, footer{
+    text-align: center;
+    padding: 1em 0;
+}
+
+/* ----- TABLEAU ----- */
+
+table{
+    width: 100%;
+    /*font-size: 0.75em;*/
+}
+
+table td{
+    white-space: nowrap;
+    text-align: right;
+}
+
+table td:first-child{
+    width: 99%;
+    text-align: left;
+}
+
+table thead{
+    text-transform: uppercase;
+}
