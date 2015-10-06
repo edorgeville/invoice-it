@@ -9,7 +9,7 @@ I started this project so it would fit my needs and could add features as I need
 ```
 bundle install
 bundle exec rake db:setup
-bundle exec rails s
+foreman start
 ```
 
 In a rails console (```bundle exec rails c```), create an admin user : 
@@ -18,6 +18,9 @@ AdminUser.create!(email:"admin@example.com", password:"12345", password_confirma
 ```
 
 Visit [0.0.0.0:3000/admin](http://0.0.0.0:3000/admin)
+
+### An Heroku button ? WOW IT'S SO SIMPLE OMG
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ### TODO
 - Add validation on models

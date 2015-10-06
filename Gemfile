@@ -3,15 +3,19 @@ source 'https://rubygems.org'
 ruby '2.2.2'
 
 gem 'rails', '4.2.2'
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 
 group :development, :test do
+    gem 'sqlite3'
     gem 'better_errors'
     gem 'binding_of_caller', platforms: :mri
     gem 'spring'
+end
+
+group :production do 
+    gem 'pg'
 end
 
 gem 'devise'

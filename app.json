@@ -1,0 +1,13 @@
+{
+  "name": "invoice-it",
+  "description": "A simple invoicing tool",
+  "keywords": ["invoice", "ruby", "rails"],
+  "repository": "https://github.com/th3m4ri0/invoice-it",
+  "success_url": "/admin",
+  "addons":[
+    "heroku-postgresql:hobby-dev"
+  ],
+  "scripts": {
+    "postdeploy": "bundle exec rake db:setup"
+  }
+}
