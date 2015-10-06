@@ -9,6 +9,8 @@ class Invoice < ActiveRecord::Base
     before_destroy :destroy_items
     accepts_nested_attributes_for :items, :allow_destroy => true
 
+    enum status: [:draft, :sent, :paid]
+
     def self.by_number(ordering=:desc)
         order(number: ordering)
     end

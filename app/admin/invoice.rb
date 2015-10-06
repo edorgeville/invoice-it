@@ -1,6 +1,11 @@
 ActiveAdmin.register Invoice do
 
-  permit_params :number, :company_id, :client_id, item_ids:[], items_attributes: [:id, :name, :quantity, :value, :_destroy]
+  permit_params :status, :number, :company_id, :client_id, item_ids:[], items_attributes: [:id, :name, :quantity, :value, :_destroy]
+
+  scope :all, :default => true
+  scope :draft
+  scope :sent
+  scope :paid
 
   member_action :pdf, method: :get do
     render "invoice/pdf", layout: "invoice", locals: { invoice: resource }
@@ -12,6 +17,13 @@ ActiveAdmin.register Invoice do
 
   index do 
     selectable_column
+    column :status do |invoice|
+      if invoice.draft?
+        status_tag invoice.status
+      else
+        status_tag invoice.status, :ok
+      end
+    end
     column :fullname
     column :total
     actions do |invoice|
@@ -21,6 +33,7 @@ ActiveAdmin.register Invoice do
 
   form do |f|
     f.inputs "Details" do
+      f.input :status, as: :radio, collection: Invoice.statuses.keys
       f.input :number
       f.input :company
       f.input :client
