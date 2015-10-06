@@ -1,4 +1,9 @@
 # Invoice-it
+## A simple invoicing tool
+
+### ??
+I started this project after searching for too long for the perfect invoicing tool. Problem is : my needs are pretty basic, but I'm difficult with what I want.  
+I started this project so it would fit my needs and could add features as I need them.
 
 ### How to use
 ```
@@ -18,3 +23,6 @@ Visit [0.0.0.0:3000/admin](http://0.0.0.0:3000/admin)
 - Add validation on models
 - Add unit testing
 - Add PDF rendering
+
+### License 
+Take a look at the [LICENSE file](LICENSE)
