@@ -4,10 +4,13 @@ class Invoice < ActiveRecord::Base
     belongs_to :company
     belongs_to :client
     has_many :items
+    accepts_nested_attributes_for :items, :allow_destroy => true
+
     after_validation :calculate_total
     after_validation :calculate_fullname
+    after_create :increment_company_index
     before_destroy :destroy_items
-    accepts_nested_attributes_for :items, :allow_destroy => true
+
 
     enum status: [:draft, :sent, :paid]
 
@@ -24,17 +27,8 @@ class Invoice < ActiveRecord::Base
         end
     end
 
-    def calculate_fullname
-        prefix = company.prefix if company
-        write_attribute(:fullname, "#{prefix}#{number}")
-    end
-
-    def calculate_total(*item)
-        write_attribute(:total, self.items.map(&:total).reduce(:+) || 0)
-    end
-
-    def destroy_items
-        Item.where(invoice_id: self.id).destroy_all
+    def display_name
+        "Invoice #{fullname}"
     end
 
     def company_head
@@ -51,5 +45,28 @@ class Invoice < ActiveRecord::Base
         head << link_to(client.email, "mailto:#{client.email}") unless client.email.empty?
         head << link_to(client.phone, "tel:#{client.phone}") unless client.phone.empty?
         head.join(" • ").html_safe
+    end
+
+
+    private
+
+    def calculate_fullname
+        prefix = company.prefix if company
+        write_attribute(:fullname, "#{prefix}#{number}")
+    end
+
+    def calculate_total(*item)
+        write_attribute(:total, self.items.map(&:total).reduce(:+) || 0)
+    end
+
+    def increment_company_index
+        if company
+            company.index += 1
+            company.save!
+        end
+    end
+
+    def destroy_items
+        Item.where(invoice_id: self.id).destroy_all
     end
 end
