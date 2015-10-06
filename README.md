@@ -17,7 +17,7 @@ In a rails console (```bundle exec rails c```), create an admin user :
 AdminUser.create!(email:"admin@example.com", password:"12345", password_confirmation:"12345")
 ```
 
-Visit [0.0.0.0:3000/admin](http://0.0.0.0:3000/admin)
+Visit [0.0.0.0:5000/admin](http://0.0.0.0:5000/admin)
 
 ### An Heroku button ? WOW IT'S SO SIMPLE OMG
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
