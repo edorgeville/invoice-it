@@ -15,6 +15,10 @@ ActiveAdmin.register Invoice do
       link_to "View PDF", pdf_admin_invoice_path(invoice), target: "_blank"
   end
 
+  filter :company
+  filter :client
+  filter :total
+
   index do 
     selectable_column
     column :status do |invoice|
