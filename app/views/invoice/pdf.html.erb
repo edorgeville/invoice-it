@@ -36,6 +36,16 @@
                             <td>$<%= item.total %></td>
                         </tr>
                         <% end %>
+                        <% if invoice.items.count < 3 %>
+                            <% for i in 0..(3 - invoice.items.count) %>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            <% end %>
+                        <% end %>
                         <tr class="table-footer">
                             <td></td>
                             <td></td>
