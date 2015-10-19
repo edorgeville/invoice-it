@@ -35,6 +35,25 @@ ActiveAdmin.register Invoice do
     end
   end
 
+  show do
+    attributes_table do
+      row('Status') { |i| status_tag i.status }
+      row :number
+      row :company
+      row :client
+      row :fullname
+      row :total
+    end
+    panel "Items" do
+      table_for invoice.items, sortable: true do
+        column :name
+        column :quantity
+        column :value
+        column :total
+      end
+    end
+  end
+
   form do |f|
     f.inputs "Details" do
       f.input :status, as: :radio, collection: Invoice.statuses.keys
