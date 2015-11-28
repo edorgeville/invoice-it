@@ -22,7 +22,6 @@ table tbody tr td{
 
 body{
     font-size: 12px;
-    font-size: 16px;
     width: 100%;
 }
 
@@ -50,7 +49,6 @@ h4{
 }
 
 p{
-    /*font-size: 0.75em;*/
     margin: 4px;
 }
 
@@ -99,7 +97,7 @@ footer{
 
 table{
     width: 100%;
-    font-size: 0.75em;
+    font-size: 1em;
 }
 
 table td{
@@ -114,6 +112,10 @@ table td:first-child{
 
 table thead{
     text-transform: uppercase;
+}
+
+.table-footer{
+  text-transform: uppercase;
 }
 
 /* ---- PRINT ----- */
