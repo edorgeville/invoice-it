@@ -31,9 +31,9 @@
                         <% invoice.items.each do |item| %>
                         <tr>
                             <td><%= item.name %></td>
-                            <td><%= item.quantity %> hrs</td>
-                            <td>$<%= item.value %>/hr</td>
-                            <td>$<%= item.total %></td>
+                            <td><%= number_with_precision item.quantity, strip_insignificant_zeros: true %> hrs</td>
+                            <td>$<%= number_with_precision item.value, strip_insignificant_zeros: true %>/hr</td>
+                            <td>$<%= number_with_precision item.total, precision: 2 %></td>
                         </tr>
                         <% end %>
                         <% if invoice.items.count < 10 %>
@@ -50,7 +50,7 @@
                             <td></td>
                             <td></td>
                             <td>Grand total</td>
-                            <td>$<%= invoice.total %></td>
+                            <td>$<%= number_with_precision invoice.total, precision: 2 %></td>
                         </tr>
                     </tbody>
                 </table>
