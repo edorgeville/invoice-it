@@ -59,7 +59,7 @@
         <div class="pure-g boxed">
             <div class="pure-u-1">
                 <h4>Modalités de paiement</h4>
-                <p>Payable par chèque, espèces ou Internet (ex. Interac en ligne) sous 5 jours</p>
+                <p>Payable par chèque, espèces ou Internet (ex. Interac en ligne) sous <%= invoice.client.max_days %> jours.</p>
                 <h4>Adresse</h4>
                 <p><%= invoice.company.address %></p>
             </div>

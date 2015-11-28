@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128055109) do
+ActiveRecord::Schema.define(version: 20151128065224) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -51,9 +51,10 @@ ActiveRecord::Schema.define(version: 20151128055109) do
     t.string   "email"
     t.string   "phone"
     t.string   "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.decimal  "rate"
+    t.integer  "max_days",   default: 15
   end
 
   create_table "companies", force: :cascade do |t|
