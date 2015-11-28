@@ -7,6 +7,27 @@ ActiveAdmin.register Invoice do
   scope :sent
   scope :paid
 
+  batch_action :mark_as_draft do |ids|
+    Invoice.find(ids).each do |invoice|
+      invoice.draft!
+    end
+    redirect_to collection_path, notice: "Selected invoices have been marked as draft."
+  end
+
+  batch_action :mark_as_sent do |ids|
+    Invoice.find(ids).each do |invoice|
+      invoice.sent!
+    end
+    redirect_to collection_path, notice: "Selected invoices have been marked as sent."
+  end
+
+  batch_action :mark_as_paid do |ids|
+    Invoice.find(ids).each do |invoice|
+      invoice.paid!
+    end
+    redirect_to collection_path, notice: "Selected invoices have been marked as paid."
+  end
+
   member_action :pdf, method: :get do
     render "invoice/pdf", layout: "invoice", locals: { invoice: resource }
   end
