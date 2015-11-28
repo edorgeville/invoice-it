@@ -1,6 +1,8 @@
 ActiveAdmin.register Invoice do
 
-  permit_params :status, :number, :company_id, :client_id, item_ids:[], items_attributes: [:id, :name, :quantity, :value, :_destroy]
+  permit_params :status, :number, :title, :company_id, :client_id,
+                :date_of_issue, item_ids:[],
+                items_attributes: [:id, :name, :quantity, :value, :_destroy]
 
   scope :all, :default => true
   scope :draft
@@ -62,6 +64,8 @@ ActiveAdmin.register Invoice do
       row :number
       row :company
       row :client
+      row :title
+      row :date_of_issue
       row :fullname
       row :total
     end
@@ -81,6 +85,8 @@ ActiveAdmin.register Invoice do
       f.input :number
       f.input :company
       f.input :client
+      f.input :title
+      f.input :date_of_issue, as: :datepicker
     end
     f.inputs "Items" do
       f.has_many :items, allow_destroy: true do |f|
@@ -101,6 +107,7 @@ ActiveAdmin.register Invoice do
       super do |format|
         @invoice.company = Company.first
         @invoice.number = @invoice.class.next_number
+        @invoice.date_of_issue = Date.today
       end
     end
   end

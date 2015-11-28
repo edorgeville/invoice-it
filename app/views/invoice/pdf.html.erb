@@ -13,7 +13,8 @@
             <div class="pure-u-2-3 right">
                 <p><%= invoice.client_head %></p>
                 <p><%= invoice.client.address %></p>
-                <p><%= I18n.l invoice.updated_at.to_date, :format => :long %></p>
+                <%= content_tag :p, invoice.title if invoice.title %>
+                <p><%= l (invoice.date_of_issue || invoice.updated_at.to_date), :format => :long %></p>
             </div>
         </div>
         <div class="pure-g">
