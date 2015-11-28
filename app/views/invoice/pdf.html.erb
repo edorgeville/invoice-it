@@ -7,10 +7,10 @@
 <div id="content">
     <div class="container">
         <div class="pure-g">
-            <div class="pure-u-1-2">
+            <div class="pure-u-1-3">
                 <h3>Facture #<%= invoice.number %></h3>
             </div>
-            <div class="pure-u-1-2 right">
+            <div class="pure-u-2-3 right">
                 <p><%= invoice.client_head %></p>
                 <p><%= invoice.client.address %></p>
                 <p><%= invoice.updated_at.to_date.to_formatted_s(:long) %></p>
@@ -36,8 +36,8 @@
                             <td>$<%= item.total %></td>
                         </tr>
                         <% end %>
-                        <% if invoice.items.count < 3 %>
-                            <% for i in 0..(3 - invoice.items.count) %>
+                        <% if invoice.items.count < 10 %>
+                            <% for i in 0..(10 - invoice.items.count) %>
                                 <tr>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
@@ -61,7 +61,7 @@
                 <h4>Modalités de paiement</h4>
                 <p>Payable par chèque, espèces ou Internet (ex. Interac en ligne) sous 5 jours</p>
                 <h4>Adresse</h4>
-                <p><%= invoice.company.email %></p>
+                <p><%= invoice.company.address %></p>
             </div>
         </div>
     </div>
