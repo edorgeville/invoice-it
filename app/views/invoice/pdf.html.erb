@@ -13,7 +13,7 @@
             <div class="pure-u-2-3 right">
                 <p><%= invoice.client_head %></p>
                 <p><%= invoice.client.address %></p>
-                <p><%= invoice.updated_at.to_date.to_formatted_s(:long) %></p>
+                <p><%= I18n.l invoice.updated_at.to_date, :format => :long %></p>
             </div>
         </div>
         <div class="pure-g">
