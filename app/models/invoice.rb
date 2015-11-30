@@ -47,6 +47,9 @@ class Invoice < ActiveRecord::Base
         head.join(" • ").html_safe
     end
 
+    def due_date
+        date_of_issue + client.max_days
+    end
 
     private
 

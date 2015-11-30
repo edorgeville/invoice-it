@@ -14,7 +14,7 @@
   },
   "env": {
     "EMAIL_FROM": {
-      "description": "The address your notification emails will come from",
+      "description": "The address your reminder emails will come from",
       "value": "from@example.com"
     },
     "SENTRY_DSN": {
