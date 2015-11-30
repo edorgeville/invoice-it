@@ -12,7 +12,7 @@ bundle exec rake db:setup
 foreman start
 ```
 
-In a rails console (```bundle exec rails c```), create an admin user : 
+In a rails console (```rails c```), create an admin user : 
 ```ruby
 AdminUser.create!(email:"admin@example.com", password:"12345", password_confirmation:"12345")
 ```

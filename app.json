@@ -1,13 +1,24 @@
 {
   "name": "invoice-it",
   "description": "A simple invoicing tool",
-  "keywords": ["invoice", "ruby", "rails"],
+  "keywords": ["invoice", "ruby", "rails", "activeadmin"],
+  "website": "http://erwandorgeville.com",
   "repository": "https://github.com/th3m4ri0/invoice-it",
   "success_url": "/admin",
   "addons":[
-    "heroku-postgresql:hobby-dev"
+    "heroku-postgresql:hobby-dev",
+    "mailgun:starter"
   ],
   "scripts": {
     "postdeploy": "bundle exec rake db:setup"
+  },
+  "env": {
+    "EMAIL_FROM": {
+      "description": "The address your notification emails will come from",
+      "value": "from@example.com"
+    },
+    "SENTRY_DSN": {
+      "description": "Sentry endpoint, if you have one."
+    }
   }
 }
