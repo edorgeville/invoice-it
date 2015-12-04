@@ -26,6 +26,7 @@ Visit [0.0.0.0:5000/admin](http://0.0.0.0:5000/admin)
 - Add validation on models
 - Add unit testing
 - Add PDF rendering
+- Finish email sending
 
 ### License 
 Take a look at the [LICENSE file](LICENSE)
