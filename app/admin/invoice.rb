@@ -51,8 +51,11 @@ ActiveAdmin.register Invoice do
         status_tag invoice.status, :ok
       end
     end
+    column :date_of_issue
     column :fullname
+    column :title
     column :total
+    column :client
     actions do |invoice|
       link_to "View PDF", pdf_admin_invoice_path(invoice), class: "member_link", target: "_blank"
     end
